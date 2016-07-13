@@ -27,3 +27,6 @@ deploy:
     tags: true
     repo: sh4r3m4n/couchdb_download_token
     condition: $TOXENV == py27
+
+after_success:
+        - bash <(curl -s https://codecov.io/bash)
