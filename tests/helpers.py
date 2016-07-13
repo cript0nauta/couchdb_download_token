@@ -5,6 +5,7 @@ from unittest import mock
 from io import BytesIO
 from couchdb import Document
 
+
 class mock_config(object):
     def __init__(self, module_name='couchdb_download_token.config', **kwargs):
         """Change the config variables given in kwargs."""
@@ -20,9 +21,11 @@ class mock_config(object):
             return func(self_, *args, **kwargs)
         return wrapped
 
+
 def get_document_patch(server_patch):
     """Get a document patch given a server patch."""
     return server_patch.__getitem__.return_value.__getitem__.return_value
+
 
 class ServerPatch(mock.MagicMock):
     """Magic mock with helper methods."""

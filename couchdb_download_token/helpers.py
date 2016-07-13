@@ -5,7 +5,8 @@ from . import config
 
 connection = couchdb.Server(config.COUCHDB_URL)
 
-def get_download_token(document:couchdb.Document):
+
+def get_download_token(document: couchdb.Document):
     """Get the download token of the specified document.
 
     :returns: The download token or None if it isn't defined.

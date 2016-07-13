@@ -1,9 +1,8 @@
-import sys
 import unittest
-from unittest import mock
 from . import helpers as test_helpers
 
 from couchdb_download_token import helpers
+
 
 class TestGetDownloadToken(unittest.TestCase):
 

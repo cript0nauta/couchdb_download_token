@@ -1,11 +1,11 @@
 # -*- coding: utf-8 -*-
 
+import falcon
+from .helpers import connection, get_download_token
+
 __author__ = 'Matías Lang'
 __email__ = 'yo@matiaslang.me'
 __version__ = '0.1.0'
-
-import falcon
-from .helpers import connection, get_download_token
 
 
 class HTTPForbidden(falcon.HTTPForbidden):

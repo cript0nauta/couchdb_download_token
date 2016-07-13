@@ -1,12 +1,11 @@
 """Download endpoint unit and integration tests."""
 
-import unittest
 from unittest import mock
 from io import BytesIO
 from ddt import data, ddt
-from falcon.testing import TestCase, StartResponseMock
+from falcon.testing import TestCase
+from couchdb_download_token import api
 from .helpers import ServerPatch
-from couchdb_download_token import api, DownloadResource
 
 
 @ddt
