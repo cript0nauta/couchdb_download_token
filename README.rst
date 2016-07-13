@@ -16,6 +16,9 @@ CouchDB Download Token Service
 .. image:: https://img.shields.io/codecov/c/github/sh4r3m4n/couchdb_download_token.svg
      :target: https://codecov.io/gh/sh4r3m4n/couchdb_download_token
      :alt: Code coverage
+.. image:: https://img.shields.io/scrutinizer/g/sh4r3m4n/couchdb_download_token.svg
+     :target: https://scrutinizer-ci.com/g/sh4r3m4n/couchdb_download_token/
+     :alt: Code coverage
 
 
 Simple web service that allows downloading CouchDB document attachments with a per-document download token.
