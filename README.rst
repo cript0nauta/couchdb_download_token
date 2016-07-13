@@ -13,9 +13,12 @@ CouchDB Download Token Service
         :target: https://couchdb-download-token.readthedocs.io/en/latest/?badge=latest
         :alt: Documentation Status
 
-.. image:: https://pyup.io/repos/github/sh4r3m4n/couchdb_download_token/shield.svg
-     :target: https://pyup.io/repos/github/sh4r3m4n/couchdb_download_token/
-     :alt: Updates
+.. image:: https://img.shields.io/codecov/c/github/sh4r3m4n/couchdb_download_token.svg
+     :target: https://codecov.io/gh/sh4r3m4n/couchdb_download_token
+     :alt: Code coverage
+.. image:: https://img.shields.io/scrutinizer/g/sh4r3m4n/couchdb_download_token.svg
+     :target: https://scrutinizer-ci.com/g/sh4r3m4n/couchdb_download_token/
+     :alt: Code coverage
 
 
 Simple web service that allows downloading CouchDB document attachments with a per-document download token.
