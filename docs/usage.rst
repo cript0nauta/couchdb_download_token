@@ -27,5 +27,8 @@ Web API Usage
    :resheader Content-Type: The content type that specified in the document's
                             attachment metadata
    :statuscode 200: No error, permission granted
-   :statuscode 403: Download token mismatch, permission dennied
+   :statuscode 403: Download token mismatch, permission dennied.
+                    If there is no token in the document or if it is null a 403
+                    error will be raised too.
+   :statuscode 404: Attachment not found. Only raised if the token is valid.
 

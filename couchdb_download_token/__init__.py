@@ -28,10 +28,12 @@ class DownloadResource:
         document = database[document_id]
         correct_token = get_download_token(document)
 
-        if req.params.get('token') != correct_token:
+        if correct_token is None or req.params.get('token') != correct_token:
             raise HTTPForbidden()
 
         attachment = database.get_attachment(document_id, filename)
+        if attachment is None:
+            raise falcon.HTTPNotFound()
         # If exists document[_attachments][filename] return its content type.
         # If it doesn't (very rare condition, there has to be a change between
         # the execution of the above and below lines) force download
