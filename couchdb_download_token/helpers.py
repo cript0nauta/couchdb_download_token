@@ -12,4 +12,24 @@ def get_download_token(document: couchdb.Document):
     :returns: The download token or None if it isn't defined.
 
     """
-    return document.get(config.DOWNLOAD_TOKEN_KEY_NAME)
+    return recursive_get(document, config.DOWNLOAD_TOKEN_KEY_NAME)
+
+
+def recursive_get(dict_, key):
+    """Get nested dictionary keys.
+
+    >>> recursive_get({"a": {"b": {"c": "d"}}}, "a.b.c")
+    "d"
+
+    Returns None if there are type conflicts.
+    """
+    keys = key.split('.')
+    last = keys.pop(-1)
+
+    dict_ = dict_.copy()
+    for key in keys:
+        value = dict_.get(key)
+        if not isinstance(value, dict):
+            return
+        dict_ = value
+    return dict_.get(last)
