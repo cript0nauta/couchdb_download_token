@@ -4,6 +4,9 @@
 Installation
 ============
 
+**You should be using Python 3 to ensure all features are working OK. Python 2
+is not fully tested.**
+
 
 Stable release
 --------------

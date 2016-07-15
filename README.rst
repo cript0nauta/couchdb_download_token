@@ -47,8 +47,8 @@ Example usage
 
 ::
 
-    $ pip install couchdb_download_token
-    $ pip install gunicorn
+    $ pip3 install couchdb_download_token
+    $ pip3 install gunicorn
     $ gunicorn couchdb_download_token:api         
     [2016-07-12 23:33:28 -0300] [7880] [INFO] Starting gunicorn 19.6.0
     [2016-07-12 23:33:28 -0300] [7880] [INFO] Listening at: http://127.0.0.1:8000 (7880)
