@@ -5,7 +5,7 @@ from .helpers import connection, get_download_token
 
 __author__ = 'Matías Lang'
 __email__ = 'yo@matiaslang.me'
-__version__ = '0.1.0'
+__version__ = '0.1.1'
 
 
 class HTTPForbidden(falcon.HTTPForbidden):

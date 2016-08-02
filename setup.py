@@ -20,7 +20,7 @@ test_requirements = [
 
 setup(
     name='couchdb_download_token',
-    version='0.1.0',
+    version='0.1.1',
     description="Simple web service that allows downloading CouchDB document attachments with a per-document download token.",
     long_description=readme + '\n\n' + history,
     author="Matías Lang",
