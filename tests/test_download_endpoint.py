@@ -4,6 +4,7 @@ from unittest import mock
 from io import BytesIO
 from ddt import data, ddt
 from falcon.testing import TestCase
+from couchdb import ResourceNotFound
 from couchdb_download_token import api
 from .helpers import ServerPatch
 
@@ -61,6 +62,15 @@ class TestDownloadResource(TestCase):
         server_patch.database.get_attachment.return_value = None
         server_patch.set_document()
         self.simulate_simple_query(status=404)
+
+    def test_404_in_non_existent_database(self, server_patch):
+        server_patch.__getitem__.side_effect = ResourceNotFound()
+        res = self.simulate_simple_query(status=404)
+
+    def test_404_in_non_existent_document(self, server_patch):
+        server_patch.database.__getitem__.side_effect = ResourceNotFound(
+            ('not_found', 'missing'))
+        res = self.simulate_simple_query(status=404)
 
     def test_correct_document_body(self, server_patch):
         server_patch.set_document()

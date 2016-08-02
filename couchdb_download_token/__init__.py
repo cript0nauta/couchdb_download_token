@@ -1,6 +1,7 @@
 # -*- coding: utf-8 -*-
 
 import falcon
+from couchdb import ResourceNotFound
 from .helpers import connection, get_download_token
 
 __author__ = 'Matías Lang'
@@ -24,8 +25,11 @@ class HTTPForbidden(falcon.HTTPForbidden):
 
 class DownloadResource:
     def on_get(self, req, resp, database_name, document_id, filename):
-        database = connection[database_name]
-        document = database[document_id]
+        try:
+            database = connection[database_name]
+            document = database[document_id]
+        except ResourceNotFound:
+            raise falcon.HTTPNotFound()
         correct_token = get_download_token(document)
 
         if correct_token is None or req.params.get('token') != correct_token:
