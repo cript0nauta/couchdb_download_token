@@ -35,6 +35,11 @@ class DownloadResource:
         if correct_token is None or req.params.get('token') != correct_token:
             raise HTTPForbidden()
 
+        # Set CORS (allow any host to access)
+        # This has no security issues because the validation is done with the
+        # token and not with cookies
+        resp.set_header('Access-Control-Allow-Origin', '*')
+
         attachment = database.get_attachment(document_id, filename)
         if attachment is None:
             raise falcon.HTTPNotFound()

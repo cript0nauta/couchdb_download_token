@@ -85,3 +85,8 @@ class TestDownloadResource(TestCase):
             "file.txt": {"content_type": "custom/type"}})
         res = self.simulate_simple_query()
         self.assertEqual(res.headers['Content-Type'], 'custom/type')
+
+    def test_cors(self, server_patch):
+        server_patch.set_document()
+        res = self.simulate_simple_query(status=200)
+        self.assertEqual(res.headers['Access-Control-Allow-Origin'], '*')
